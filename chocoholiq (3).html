@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chocoholiq - Luxurious Handmade Chocolates by Bhavna Shah | Silvasa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --chocolate-dark: #2D1810;
+            --chocolate-medium: #5C3317;
+            --chocolate-light: #8B6F47;
+            --cream: #F5E6D3;
+            --gold: #C9A96E;
+            --white: #FFFBF5;
+            --accent-rose: #D4A5A5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--white);
+            color: var(--chocolate-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--chocolate-dark) 0%, var(--chocolate-medium) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(201, 169, 110, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(212, 165, 165, 0.1) 0%, transparent 50%);
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .hero-logo {
+            width: 280px;
+            max-width: 80%;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 7rem;
+            font-weight: 800;
+            color: var(--gold);
+            letter-spacing: 0.02em;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1.2s ease-out 0.2s both;
+        }
+
+        .hero .tagline {
+            font-size: 1.8rem;
+            color: var(--cream);
+            font-weight: 300;
+            letter-spacing: 0.15em;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1.2s ease-out 0.4s both;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-rose);
+            font-weight: 400;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1.2s ease-out 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: var(--gold);
+            color: var(--chocolate-dark);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1.2s ease-out 0.8s both;
+            box-shadow: 0 10px 30px rgba(201, 169, 110, 0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--cream);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201, 169, 110, 0.4);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            color: var(--cream);
+            letter-spacing: 0.2em;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(45, 24, 16, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 5%;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--chocolate-dark);
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.3rem;
+            color: var(--chocolate-light);
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(45, 24, 16, 0.3);
+            height: 550px;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: var(--chocolate-medium);
+        }
+
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--chocolate-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Menu Categories */
+        .menu-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-tab {
+            padding: 1rem 2rem;
+            background: var(--cream);
+            border-radius: 50px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--chocolate-dark);
+            border: 2px solid transparent;
+        }
+
+        .category-tab:hover {
+            background: var(--gold);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .category-tab.active {
+            background: var(--chocolate-dark);
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        /* Menu Grid */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .menu-item {
+            background: var(--cream);
+            border-radius: 20px;
+            padding: 0;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-item:hover .menu-item-image img {
+            transform: scale(1.1);
+        }
+
+        .menu-item-content {
+            padding: 2rem;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold), var(--accent-rose));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(45, 24, 16, 0.15);
+        }
+
+        .menu-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .menu-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--chocolate-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-item .category {
+            color: var(--gold);
+            font-size: 1rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .menu-item p {
+            color: var(--chocolate-medium);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .price {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--chocolate-dark);
+        }
+
+        /* Special Offers */
+        .offers-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .offer-card {
+            background: linear-gradient(135deg, var(--chocolate-dark), var(--chocolate-medium));
+            color: var(--cream);
+            padding: 3rem;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(201, 169, 110, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .offer-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .offer-card p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .offer-badge {
+            display: inline-block;
+            background: var(--accent-rose);
+            color: var(--chocolate-dark);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            margin-top: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--cream), var(--white));
+            border-radius: 30px;
+            padding: 5rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(45, 24, 16, 0.1);
+        }
+
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--chocolate-dark);
+            margin-bottom: 1rem;
+        }
+
+        .contact-section p {
+            font-size: 1.3rem;
+            color: var(--chocolate-medium);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+
+        .contact-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(45, 24, 16, 0.1);
+        }
+
+        .contact-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--chocolate-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            font-size: 1.2rem;
+            color: var(--chocolate-light);
+        }
+
+        .contact-item a {
+            color: var(--chocolate-medium);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--gold);
+        }
+
+        .phone-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 1.2rem 3rem;
+            background: var(--chocolate-dark);
+            color: var(--gold);
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .phone-link:hover {
+            background: var(--chocolate-medium);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(45, 24, 16, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--chocolate-dark);
+            color: var(--cream);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .tagline-footer {
+            color: var(--gold);
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 1rem;
+            }
+
+            .menu-grid,
+            .offers-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .menu-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero .tagline {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .contact-section {
+                padding: 3rem 2rem;
+            }
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">Chocoholiq</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <img src="chocoholiq-logo.jpg" alt="Chocoholiq - Luxurious Chocolates" class="hero-logo">
+            <p class="subtitle">Handmade Happiness in Every Bite</p>
+            <a href="#contact" class="cta-button">ORDER NOW</a>
+        </div>
+        <div class="scroll-indicator">SCROLL</div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Chocoholiq</h2>
+        <p class="section-subtitle">Where passion meets perfection</p>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="chocolate_woman.jpg" alt="Bhavna Shah - Founder of Chocoholiq crafting artisan chocolates">
+            </div>
+            <div class="about-text">
+                <h3>The Journey of Bhavna Shah</h3>
+                <p>Welcome to Chocoholiq, where passion meets perfection in the world of homemade chocolates. What began as Bhavna Shah's simple love for creating sweet delights has grown into a journey of spreading happiness, one chocolate at a time.</p>
+                <p>At Chocoholiq, we believe that chocolates are more than just treats – they are little moments of joy, crafted to bring smiles, warmth, and memories to everyone who tastes them.</p>
+                <p>Every chocolate is lovingly handcrafted at home using only the finest, premium ingredients. From rich cocoa and creamy milk to crunchy nuts and natural flavors, we ensure that every bite carries the goodness of purity and the touch of homemade warmth.</p>
+                <p>Our mission is simple: to share the comfort of homemade goodness with the luxury of rich chocolate indulgence. With Chocoholiq, you don't just enjoy chocolate – you experience happiness, wrapped beautifully for every occasion.</p>
+                <p><strong>No preservatives, no shortcuts – just authentic chocolates made with care, passion, and a promise of unforgettable taste.</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu">
+        <h2 class="section-title">Menu</h2>
+        <p class="section-subtitle">Handcrafted with love, delivered with care</p>
+
+        <!-- CHOCOLATES (Per Piece) -->
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--chocolate-dark); margin-top: 3rem; margin-bottom: 2rem; text-align: center;">Chocolates (Per Piece)</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Regular_Chocolate.jpg" alt="Regular Chocolate">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Classic</span>
+                    <h3>Regular Chocolate</h3>
+                    <p>Classic homemade chocolate crafted with rich cocoa and creamy texture.</p>
+                    <div class="price">₹8 / piece</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Regular_Flavored_Chocolate.jpg" alt="Regular Flavored Chocolate">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Flavored</span>
+                    <h3>Regular Flavored Chocolate</h3>
+                    <p>Smooth chocolate infused with delightful flavors like coffee, orange, or strawberry.</p>
+                    <div class="price">₹10 / piece</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Regular_Chocolate.jpg" alt="Dry Fruit Chocolate">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Premium</span>
+                    <h3>Dry Fruit / Nuts Chocolate</h3>
+                    <p>Decadent chocolate enriched with crunchy dry fruits and premium nuts.</p>
+                    <div class="price">₹15 / piece</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHOCOLATE BARS -->
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--chocolate-dark); margin-top: 4rem; margin-bottom: 2rem; text-align: center;">Chocolate Bars</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Regular_Bar.jpg" alt="Regular Bar">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Classic Bar</span>
+                    <h3>Regular Bar</h3>
+                    <p>A timeless indulgence of rich, silky chocolate crafted to perfection.</p>
+                    <div class="price">₹75 / bar</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Regular_Flavored_Bar.jpg" alt="Regular Flavored Bar">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Flavored Bar</span>
+                    <h3>Regular Flavored Bar</h3>
+                    <p>Smooth chocolate bars infused with delightful flavors for every mood.</p>
+                    <div class="price">₹80 / bar</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Dry_Fruit_Nuts_Bar.jpg" alt="Dry Fruit Bar">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Premium Bar</span>
+                    <h3>Dry Fruit / Nuts Bar</h3>
+                    <p>Premium chocolate loaded with crunchy nuts and dry fruits in every bite.</p>
+                    <div class="price">₹95 / bar</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="knufah_bar.jpg" alt="Kunafa Chocolate Bar">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Exotic Bar</span>
+                    <h3>Knafeh Bar</h3>
+                    <p>Crispy kunafa layered with rich chocolate & nuts. Middle Eastern fusion delight.</p>
+                    <div class="price">₹199 / bar</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Filling_Flavored_Bar.jpg" alt="Filling Flavored Bar">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Specialty Bar</span>
+                    <h3>Filling Flavored Bar</h3>
+                    <p>Chocolate bar with delicious flavored filling for an extra indulgent experience.</p>
+                    <div class="price">₹199 / bar</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Cream_Cookie_Bar.jpg" alt="Cream & Cookie Bar">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Cookie Bar</span>
+                    <h3>Cream & Cookie Bar</h3>
+                    <p>Delightful mix of buttery cookie crumbs and chocolate for perfect crunch.</p>
+                    <div class="price">₹149 / bar</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Ras_Malia_Bar.jpg" alt="Ras Malia Bar">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Indian Fusion Bar</span>
+                    <h3>Ras Malia Bar</h3>
+                    <p>Traditional Indian Ras Malai flavor reimagined in chocolate bar form.</p>
+                    <div class="price">₹149 / bar</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Customized_Name_Bar.jpg" alt="Customized Name Bar">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Personalized Bar</span>
+                    <h3>Customized Name Bar</h3>
+                    <p>Personalized chocolate bar with custom name or message. Perfect for gifting.</p>
+                    <div class="price">₹299 / bar</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TRUFFLE CHOCOLATES (Per Kg) -->
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--chocolate-dark); margin-top: 4rem; margin-bottom: 2rem; text-align: center;">Truffle Chocolates (Per Kg)</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Regular_Belgium_Truffle.jpg" alt="Regular Belgium Truffle">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Belgian Classic</span>
+                    <h3>Regular Belgium Truffle</h3>
+                    <p>Classic Belgian cocoa truffles with a rich, melt-in-the-mouth experience.</p>
+                    <div class="price">₹1,399 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Nuts_Flavored_Truffle.jpg" alt="Nuts & Flavored Truffle">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Nutty Truffle</span>
+                    <h3>Nuts & Flavored Truffle</h3>
+                    <p>Smooth chocolate truffles with nutty textures and infused flavors.</p>
+                    <div class="price">₹1,499 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Ras_Malia_Truffle.jpg" alt="Ras Malia Truffle">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Indian Fusion</span>
+                    <h3>Ras Malia Truffle</h3>
+                    <p>Creamy Ras Malai-infused chocolate truffle. A perfect blend of tradition and chocolate.</p>
+                    <div class="price">₹1,599 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="pan_flavoured_truffle.png" alt="Pan Flavored Truffle">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Desi Delight</span>
+                    <h3>Pan Flavored Truffle</h3>
+                    <p>An exotic fusion of refreshing pan essence wrapped in silky chocolate.</p>
+                    <div class="price">₹1,599 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Coffee_Walnut_Truffle.jpg" alt="Coffee Walnut Truffle">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Coffee Lovers</span>
+                    <h3>Coffee Walnut Truffle</h3>
+                    <p>Rich coffee-infused chocolate paired with crunchy walnuts.</p>
+                    <div class="price">₹1,599 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Nutella_Plain_Truffle.jpg" alt="Nutella Plain Truffle">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Hazelnut Heaven</span>
+                    <h3>Nutella Plain Truffle</h3>
+                    <p>Smooth Nutella-flavored truffle for hazelnut chocolate lovers.</p>
+                    <div class="price">₹1,299 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Nutella_Hazelnut_Truffle.jpg" alt="Nutella Hazelnut Truffle">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Nutella Special</span>
+                    <h3>Nutella Hazelnut Truffle</h3>
+                    <p>Nutella truffle with crunchy hazelnut pieces for extra indulgence.</p>
+                    <div class="price">₹1,499 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Coconut_Plain.jpg" alt="Coconut Plain">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Tropical Treat</span>
+                    <h3>Coconut Plain</h3>
+                    <p>Smooth coconut-flavored chocolate truffle with natural coconut essence.</p>
+                    <div class="price">₹1,299 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Coconut_with_Blueberry.jpg" alt="Coconut with Blueberry">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Berry Coconut</span>
+                    <h3>Coconut with Blueberry</h3>
+                    <p>Creamy coconut chocolate with tangy blueberry bits for a fruity twist.</p>
+                    <div class="price">₹1,599 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Chai_Biscoff_Masala_Truffle.jpg" alt="Chai Biscoff Masala Truffle">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Unique Fusion</span>
+                    <h3>Chai Biscoff Masala Truffle</h3>
+                    <p>Innovative truffle combining chai masala spices with Biscoff cookie flavors.</p>
+                    <div class="price">₹1,499 / kg</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PREMIUM CHOCOLATES (Per Kg) -->
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--chocolate-dark); margin-top: 4rem; margin-bottom: 2rem; text-align: center;">Premium Chocolates (Per Kg)</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Fresh_Pan_Flavors.jpg" alt="Fresh Pan Flavors">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Desi Special</span>
+                    <h3>Fresh Pan Flavors</h3>
+                    <p>An exotic fusion of refreshing pan essence wrapped in silky chocolate for a truly desi delight. Filling and shape on demand.</p>
+                    <div class="price">₹1,300 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Mango_Pistachio_Cup.jpg" alt="Mango Pistachio Cup">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Tropical Cup</span>
+                    <h3>Mango Pistachio Cup</h3>
+                    <p>Creamy mango-infused chocolate paired with crunchy pistachios in an elegant cup.</p>
+                    <div class="price">₹1,400 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Dry_Fruit_Dried_Fruits_&_Nuts_Cup.jpg" alt="Dry Fruit Cup">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Nutty Cup</span>
+                    <h3>Dry Fruit, Dried Fruits & Nuts Cup</h3>
+                    <p>Premium chocolate cups loaded with assorted dry fruits and crunchy nuts.</p>
+                    <div class="price">₹1,500 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Stuffed_Medjool_Dates.jpg" alt="Stuffed Medjool Dates">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Luxury Dates</span>
+                    <h3>Stuffed Medjool Dates</h3>
+                    <p>Luxurious dates stuffed with nuts and coated in premium chocolate.</p>
+                    <div class="price">₹1,500 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="French_Indian_Fusion_.jpg" alt="French-Indian Fusion">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Mithai Fusion</span>
+                    <h3>French-Indian Fusion (Mithai Chocolate)</h3>
+                    <p>A fusion of Indian tradition and chocolate luxury – mithai reimagined with a rich cocoa twist.</p>
+                    <div class="price">₹1,500 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Fudge.jpg" alt="Fudge">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Classic Fudge</span>
+                    <h3>Fudge</h3>
+                    <p>A soft, chewy indulgence of chocolate fudge with a rich cocoa punch.</p>
+                    <div class="price">₹1,300 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="knufah_chocolate.jpg" alt="Kunafa Chocolate">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Middle Eastern</span>
+                    <h3>Kunafa Chocolate</h3>
+                    <p>Crispy kunafa layered with rich chocolate & nuts. An exotic delight.</p>
+                    <div class="price">₹1,200 / kg</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- COOKIES -->
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--chocolate-dark); margin-top: 4rem; margin-bottom: 2rem; text-align: center;">Cookies</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Dry_Fruit_Cookie.jpg" alt="Dry Fruit Cookie">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Cookie Delight</span>
+                    <h3>Dry Fruit Cookie</h3>
+                    <p>A delightful crunch of buttery cookie blended with rich chocolate, loaded with premium dry fruits like almonds, cashews, and pistachios.</p>
+                    <div class="price">₹700 / kg</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- NUT-BASED TREATS -->
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--chocolate-dark); margin-top: 4rem; margin-bottom: 2rem; text-align: center;">Nut-Based Treats</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Almond_Nutties.jpg" alt="Almond Nutties">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Almond Coating</span>
+                    <h3>Almond Nutties</h3>
+                    <p>Rich milk chocolate coated around crunchy roasted almonds.</p>
+                    <div class="price">₹1,250 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Hazelnut_Nutties.jpg" alt="Hazelnut Nutties">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Hazelnut Coating</span>
+                    <h3>Hazelnut Nutties</h3>
+                    <p>Creamy chocolate shells with the nutty crunch of premium hazelnuts.</p>
+                    <div class="price">₹1,850 / kg</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Almond_Brittle.jpg" alt="Almond Brittle">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Brittle Treat</span>
+                    <h3>Almond Brittle</h3>
+                    <p>A caramelized blend of roasted almonds and silky chocolate shards.</p>
+                    <div class="price">₹200 / 100g</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Ferrero_Rocher.jpg" alt="Ferrero Rocher">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Luxury Hazelnut</span>
+                    <h3>Ferrero Rocher</h3>
+                    <p>Luxurious layers of chocolate, crispy wafer, and roasted hazelnuts, crafted to perfection. (Minimum 5 pieces)</p>
+                    <div class="price">₹40 / piece</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SPECIALTY ITEMS -->
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--chocolate-dark); margin-top: 4rem; margin-bottom: 2rem; text-align: center;">Specialty Items</h3>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Edible_Rakhi.jpg" alt="Regular Edible Rakhi">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Festival Special</span>
+                    <h3>Regular Edible Rakhi</h3>
+                    <p>Unique edible chocolate rakhi for Raksha Bandhan celebrations.</p>
+                    <div class="price">₹50 / piece</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Decorative_Edible_Rakhi.jpg" alt="Decorative Edible Rakhi">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Decorative Rakhi</span>
+                    <h3>Decorative Edible Rakhi</h3>
+                    <p>Beautifully decorated edible chocolate rakhi with intricate designs.</p>
+                    <div class="price">₹75 / piece</div>
+                </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="menu-item-image">
+                    <img src="Chocolate_Bouquet.jpg" alt="Chocolate Bouquet">
+                </div>
+                <div class="menu-item-content">
+                    <span class="category">Gift Special</span>
+                    <h3>Chocolate Bouquet</h3>
+                    <p>Beautiful chocolate bouquets crafted for special occasions. Perfect gift for loved ones.</p>
+                    <div class="price">₹500+ (as per budget)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terms & Conditions Box -->
+        <div style="background: var(--cream); padding: 2rem; border-radius: 15px; margin-top: 4rem; border-left: 5px solid var(--gold);">
+            <h4 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--chocolate-dark); margin-bottom: 1rem;">Terms & Conditions</h4>
+            <ul style="list-style: none; padding: 0; font-size: 1.1rem; color: var(--chocolate-medium); line-height: 2;">
+                <li>✓ <strong>Custom Orders:</strong> Birthday parties, return gifts, gift hampers, and special occasions available</li>
+                <li>✓ <strong>Packing Charges:</strong> Extra charges apply for special/customized packaging</li>
+                <li>✓ <strong>Courier Charges:</strong> Additional shipping charges apply</li>
+                <li>✓ <strong>Payment:</strong> 100% advance payment required for all orders</li>
+                <li>✓ <strong>Quality:</strong> All chocolates handcrafted with premium ingredients, no preservatives</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="contact-section">
+            <h2>Place Your Order</h2>
+            <p>Experience the finest handmade chocolates delivered to your doorstep anywhere in India.<br>Contact Bhavna Shah directly to place your order.</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📞 Phone</h4>
+                    <p><a href="tel:+919898998258">+91 98989 98258</a></p>
+                </div>
+                <div class="contact-item">
+                    <h4>📧 Email</h4>
+                    <p><a href="/cdn-cgi/l/email-protection#52113a3d313d3a3d3e3b2312353f333b3e7c313d3f"><span class="__cf_email__" data-cfemail="3073585f535f585f5c594170575d51595c1e535f5d">[email&#160;protected]</span></a></p>
+                </div>
+                <div class="contact-item">
+                    <h4>📍 Location</h4>
+                    <p>Silvasa, Gujarat<br>India</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📱 Instagram</h4>
+                    <p><a href="https://instagram.com/Chocoholiq.in" target="_blank">@Chocoholiq.in</a></p>
+                </div>
+            </div>
+
+            <a href="tel:+919898998258" class="phone-link">📞 CALL TO ORDER</a>
+            <p style="margin-top: 1.5rem; font-size: 1rem;"><strong>100% advance payment required for all orders</strong></p>
+            <p style="font-size: 0.95rem;">Custom orders available for birthday parties, return gifts, and special occasions</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Chocoholiq.in | Artisan Chocolates by Bhavna Shah | Silvasa, Gujarat</p>
+        <p class="tagline-footer">"Handmade Happiness in Every Bite"</p>
+        <p style="margin-top: 1rem; font-size: 0.95rem;">All chocolates are lovingly handcrafted using premium ingredients with no preservatives</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+           
